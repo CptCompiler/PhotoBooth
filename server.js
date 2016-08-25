@@ -18,6 +18,8 @@ io.on('connection', function(socket){
 
 http.listen(3000, function(){
   console.log('listening on *:3000');
+  var open = require('open');
+  open('http://localhost:3000');
 });
 
 
