@@ -1,0 +1,20 @@
+{
+  "name": "public",
+  "authors": [
+    "Andres Stennert <andres@21stdigital.de>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "owl.carousel": "OwlCarousel2#^2.1.6"
+  }
+}
