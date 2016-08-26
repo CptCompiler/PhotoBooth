@@ -62,7 +62,7 @@ GPhoto.list(function (list) {
     var path = __dirname + '/public/photos/';
     fs.writeFileSync(path + fileName + '.jpg', data);
     require('lwip').open(path + fileName + '.jpg', function(err, image){
-
+      console.log(err);
       // check err...
       // define a batch of manipulations and save to disk as JPEG:
       image.batch()
@@ -73,6 +73,7 @@ GPhoto.list(function (list) {
         .writeFile(path + fileName + '_small.jpg', function(err){
           // check err...
           // done.
+          console.log(err);
         });
 
     });
