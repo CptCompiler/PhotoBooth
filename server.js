@@ -61,22 +61,22 @@ GPhoto.list(function (list) {
     var fileName = new Date();
     var path = __dirname + '/public/photos/';
     fs.writeFileSync(path + fileName + '.jpg', data);
-    require('lwip').open(path + fileName + '.jpg', function(err, image){
-      console.log(err);
-      // check err...
-      // define a batch of manipulations and save to disk as JPEG:
-      image.batch()
-        .scale(0.25)          // scale to 75%
-        //.rotate(45, 'white')  // rotate 45degs clockwise (white fill)
-        //.crop(200)            // crop a 200X200 square from center
-        //.blur(5)              // Gaussian blur with SD=5
-        .writeFile(path + fileName + '_small.jpg', function(err){
-          // check err...
-          // done.
-          console.log(err);
-        });
+    // require('lwip').open(path + fileName + '.jpg', function(err, image){
+    //   console.log(err);
+    //   // check err...
+    //   // define a batch of manipulations and save to disk as JPEG:
+    //   image.batch()
+    //     .scale(0.25)          // scale to 75%
+    //     //.rotate(45, 'white')  // rotate 45degs clockwise (white fill)
+    //     //.crop(200)            // crop a 200X200 square from center
+    //     //.blur(5)              // Gaussian blur with SD=5
+    //     .writeFile(path + fileName + '_small.jpg', function(err){
+    //       // check err...
+    //       // done.
+    //       console.log(err);
+    //     });
 
-    });
+    // });
    });
 
   // // Take picture without downloading immediately
