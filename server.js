@@ -57,9 +57,9 @@ GPhoto.list(function (list) {
   // });
 
   // // Take picture with camera object obtained from list()
-  // camera.takePicture({download: true}, function (er, data) {
-  //   fs.writeFileSync(__dirname + '/picture.jpg', data);
-  // });
+   camera.takePicture({download: true}, function (er, data) {
+     fs.writeFileSync(__dirname + '/public/photos/' + new Date() + '.jpg', data);
+   });
 
   // // Take picture without downloading immediately
   // camera.takePicture({download: false}, function (er, path) {
@@ -67,11 +67,11 @@ GPhoto.list(function (list) {
   // });
 
   // Take picture and download it to filesystem
-  camera.takePicture({
-    targetPath: 'public/photos/foo.jpg'
-  }, function (er, tmpname) {
-    fs.renameSync(tmpname, __dirname + 'public/photos/picture.jpg');
-  });
+//  camera.takePicture({
+  //  targetPath: '/tmp/foo.XXXXXX'
+ // }, function (er, tmpname) {
+ //   fs.renameSync(tmpname, __dirname + 'public/photos/' + 123  + '.jpg');
+ // });
 
   // // Download a picture from camera
   // camera.downloadPicture({
