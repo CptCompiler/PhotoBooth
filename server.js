@@ -58,8 +58,9 @@ GPhoto.list(function (list) {
 
   // // Take picture with camera object obtained from list()
   camera.takePicture({download: true}, function (er, data) {
-    var path = __dirname + '/public/photos/' + new Date() + '.jpg';
-    fs.writeFileSync(path, data);
+    var fileName = new Date();
+    var path = __dirname + '/public/photos/';
+    fs.writeFileSync(path + fileName + '.jpg', data);
     require('lwip').open(path, function(err, image){
 
       // check err...
@@ -69,7 +70,7 @@ GPhoto.list(function (list) {
         //.rotate(45, 'white')  // rotate 45degs clockwise (white fill)
         //.crop(200)            // crop a 200X200 square from center
         //.blur(5)              // Gaussian blur with SD=5
-        .writeFile(path + '_small', function(err){
+        .writeFile(path + fileName + '_small.jpg', function(err){
           // check err...
           // done.
         });
