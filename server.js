@@ -61,7 +61,7 @@ GPhoto.list(function (list) {
     var fileName = new Date();
     var path = __dirname + '/public/photos/';
     fs.writeFileSync(path + fileName + '.jpg', data);
-    require('lwip').open(path, function(err, image){
+    require('lwip').open(path + fileName + '.jpg', function(err, image){
 
       // check err...
       // define a batch of manipulations and save to disk as JPEG:
