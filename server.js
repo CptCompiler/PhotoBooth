@@ -72,7 +72,7 @@ function takePicture() {
       
       var epeg = require("epeg");
       var image = new epeg.Image({data: data});
-      buffer = image.downsize(1200, 800).process();
+      buffer = image.downsize(1920, 1800).process();
       fs.writeFileSync(path + fileName + '.jpg', buffer);
       
       io.emit('new photo', fileName + '.jpg');
