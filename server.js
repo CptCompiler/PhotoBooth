@@ -6,10 +6,16 @@ const path = require('path');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jade')
 app.use(express.static('public'));
 
-app.get('/', function(req, res){
-  res.sendfile('index.html');
+app.get('/', function (req, res) {
+  res.render('index',
+    { pics : fs.readdirSync(__dirname + '/public/photos/').filter(function(e) {
+      return e.indexOf('.jpg') != -1;
+    }) }
+  );
 });
 
 io.on('connection', function(socket){
