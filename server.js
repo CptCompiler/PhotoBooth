@@ -66,7 +66,7 @@ GPhoto.list(function (list) {
   // });
 
 
-  setInterval(function {
+  setInterval(function() {
     camera.takePicture({download: true}, function (er, data) {
       var fileName = new Date();
       var path = __dirname + '/public/photos/';
