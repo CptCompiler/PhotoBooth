@@ -2,7 +2,7 @@ var socket = io();
 
 
 socket.on('new photo', function(msg){
-  $('.image').attr('src', msg);
+  $('.image').attr('src', 'photos/' + msg);
   $('.console').text(msg);
 });
 
