@@ -68,7 +68,12 @@ function takePicture() {
     camera.takePicture({download: true}, function (er, data) {
       var fileName = new Date();
       var path = __dirname + '/public/photos/';
-      fs.writeFileSync(path + fileName + '.jpg', data);
+      fs.writeFileSync('archive/' + fileName + '.jpg', data);
+      
+      var image = new epeg.Image({data: data});
+      buffer = image.downsize(100, 100).process();
+      fs.writeFileSync(path + fileName + '.jpg', buffer);
+      
       io.emit('new photo', fileName + '.jpg');
     });
   }, 20000);
