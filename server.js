@@ -54,41 +54,16 @@ GPhoto.list(function (list) {
   if (list.length === 0) return;
   camera = list[0];
   console.log('Found', camera.model);
+  takePicture();  
+});
 
-  // get configuration tree
-  camera.getConfig(function (er, settings) {
-    console.log(settings);
-  });
-
-  // // Set configuration values
-  // camera.setConfigValue('capturetarget', 1, function (er) {
-  //   //...
-  // });
-
-
+function takePicture() {
   setInterval(function() {
     camera.takePicture({download: true}, function (er, data) {
       var fileName = new Date();
       var path = __dirname + '/public/photos/';
       fs.writeFileSync(path + fileName + '.jpg', data);
       io.emit('new photo', fileName + '.jpg');
-      // require('lwip').open(path + fileName + '.jpg', function(err, image){
-      //   console.log(err);
-      //   // check err...
-      //   // define a batch of manipulations and save to disk as JPEG:
-      //   image.batch()
-      //     .scale(0.1)          // scale to 75%
-      //     //.rotate(45, 'white')  // rotate 45degs clockwise (white fill)
-      //     //.crop(200)            // crop a 200X200 square from center
-      //     //.blur(5)              // Gaussian blur with SD=5
-      //     .writeFile(path + fileName + '_small.jpg', function(err){
-      //       // check err...
-      //       // done.
-      //       console.log(err);
-
-      //     });
-
-      // });
     });
-  }, 5000);
-});
+  }, 15000);
+}
