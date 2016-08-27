@@ -14,6 +14,14 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   console.log('a user connected');
+  socket.on('take photo', function() {
+    camera.takePicture({download: true}, function (er, data) {
+    var fileName = new Date();
+    var path = __dirname + '/public/photos/';
+    fs.writeFileSync(path + fileName + '.jpg', data);
+    io.emit('new photo', fileName + '.jpg');
+   });
+  });
 });
 
 http.listen(3000, function(){
@@ -40,10 +48,11 @@ var gphoto2 = require('gphoto2');
 var GPhoto = new gphoto2.GPhoto2();
 var fs = require('fs');
 
+var camera;
 // List cameras / assign list item to variable to use below options
 GPhoto.list(function (list) {
   if (list.length === 0) return;
-  var camera = list[0];
+  camera = list[0];
   console.log('Found', camera.model);
 
   // get configuration tree

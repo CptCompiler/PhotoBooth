@@ -6,6 +6,11 @@ socket.on('new photo', function(msg){
   $('.console').text(msg);
 });
 
+
+$('.button').click(function() {
+  socket.emit('take photo');
+});
+
 // $(document).ready(function(){
 //   var owlContainer = $('.owl-carousel');
 //   var owl = owlContainer.owlCarousel({
