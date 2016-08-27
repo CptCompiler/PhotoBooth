@@ -70,6 +70,7 @@ function takePicture() {
       var path = __dirname + '/public/photos/';
       fs.writeFileSync('archive/' + fileName + '.jpg', data);
       
+      var epeg = require("epeg");
       var image = new epeg.Image({data: data});
       buffer = image.downsize(100, 100).process();
       fs.writeFileSync(path + fileName + '.jpg', buffer);
