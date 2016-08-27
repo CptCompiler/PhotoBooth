@@ -24,7 +24,8 @@ function setNewImage(imageIndex) {
   //currentImageDiv.attr('style', '-webkit-transform: translateY(150%) ');
 
   currentImageDiv.removeClass('fadeIn');
-  nextImageDiv.html('<img src="photos/' + images[imageIndex] + '">');
+  nextImageDiv.attr('src', 'photos/' + images[imageIndex]);
+  
   nextImageDiv.removeClass('fadeOut');
   nextImageDiv.addClass('fadeIn');
   //nextImageDiv.css('-webkit-transform', 'translateY(-50%) rotateZ(' + (Math.random() * 20 -10) + 'deg) scale(1)');
