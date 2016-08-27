@@ -2,9 +2,12 @@ doctype
 html
   head
     title Photo Booth
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/styles.css')
+    script(src='/socket.io/socket.io.js')
   body
     header
     .container
       .main-content
         block content
+  script(src='bower_components/jquery/dist/jquery.min.js')
+  script(src='/main.js')

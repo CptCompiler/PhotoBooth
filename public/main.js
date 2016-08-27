@@ -1,33 +1,30 @@
 var socket = io();
 
 
+
+var images = $('.images').data('images');
+var currentImageDiv = $('.imageOne');
+var nextImageDiv = $('.imageTwo');
+currentImageDiv.html('<img src="photos/' + images[0] + '">');
+
 socket.on('new photo', function(msg){
   $('.image').attr('src', 'photos/' + msg);
-  $('.console').text(msg);
+  images.push(msg);
+  setNewImage(images.length-1);
 });
 
-
-$('.button').click(function() {
-  socket.emit('take photo');
-});
-
-// $(document).ready(function(){
-//   var owlContainer = $('.owl-carousel');
-//   var owl = owlContainer.owlCarousel({
-//     loop:false,
-//     margin:10,
-//     nav:true,
-//     items: 1
-//   });
-
-//   owl.on('change.owl.carousel', function() {
-//     console.log('changed');
-//   });
+setInterval(function() {
+  setNewImage(Math.floor(Math.random() * images.length));
+}, 10000);
 
 
-//   socket.on('new photo', function(msg){
-//     console.log('message: ' + msg);
-//     owl.trigger('add.owl.carousel', ['<img src="photos/' + msg + '">', 0]);
-//   });
-  
-// });
+function setNewImage(imageIndex) {
+  currentImageDiv.addClass('fadeOut');
+  currentImageDiv.removeClass('fadeIn');
+  nextImageDiv.html('<img src="photos/' + images[imageIndex] + '">');
+  nextImageDiv.removeClass('fadeOut');
+  nextImageDiv.addClass('fadeIn');
+  var temp = currentImageDiv;
+  currentImageDiv = nextImageDiv;
+  nextImageDiv = temp;
+}

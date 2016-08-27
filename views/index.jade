@@ -1,5 +1,6 @@
 extend layout
 block content
   
-  each val in pics
-    img(src='/photos/' + val, style="width: 500px;")
+  div.images(data-images=pics)
+  div.imageOne.image
+  div.imageTwo.image
