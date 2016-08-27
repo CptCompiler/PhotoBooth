@@ -25,4 +25,5 @@ img {
 }
 .fadeOut {
   -webkit-transform: translateY(150%);
+  transform: translateY(150%);
 }
