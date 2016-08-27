@@ -4,13 +4,17 @@ img {
 }
 
 .image {
-  width: 100%;
+  width: 80%;
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 10%;
+  right: 10%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
-  transition: all 0.3s;
+  transition: all 1.3s;
+
+  -webkit-transition-delay: 1s; /* Safari */
+  transition-delay: 1s;
 }
 
 .fadeIn {
