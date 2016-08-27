@@ -23,15 +23,15 @@ http.listen(3000, function(){
 });
 
 
-var chokidar = require('chokidar');
+// var chokidar = require('chokidar');
 
-var watcher = chokidar.watch('public/photos/*.jpg', {
-  ignored: /[\/\\]\./, persistent: true
-});
+// var watcher = chokidar.watch('public/photos/*.jpg', {
+//   ignored: /[\/\\]\./, persistent: true
+// });
 
-watcher.on('add', function(newFile) {
-  io.emit('new photo', path.basename(newFile));
-});
+// watcher.on('add', function(newFile) {
+//   io.emit('new photo', path.basename(newFile));
+// });
 
 
 
@@ -61,22 +61,23 @@ GPhoto.list(function (list) {
     var fileName = new Date();
     var path = __dirname + '/public/photos/';
     fs.writeFileSync(path + fileName + '.jpg', data);
-    // require('lwip').open(path + fileName + '.jpg', function(err, image){
-    //   console.log(err);
-    //   // check err...
-    //   // define a batch of manipulations and save to disk as JPEG:
-    //   image.batch()
-    //     .scale(0.25)          // scale to 75%
-    //     //.rotate(45, 'white')  // rotate 45degs clockwise (white fill)
-    //     //.crop(200)            // crop a 200X200 square from center
-    //     //.blur(5)              // Gaussian blur with SD=5
-    //     .writeFile(path + fileName + '_small.jpg', function(err){
-    //       // check err...
-    //       // done.
-    //       console.log(err);
-    //     });
+    require('lwip').open(path + fileName + '.jpg', function(err, image){
+      console.log(err);
+      // check err...
+      // define a batch of manipulations and save to disk as JPEG:
+      image.batch()
+        .scale(0.1)          // scale to 75%
+        //.rotate(45, 'white')  // rotate 45degs clockwise (white fill)
+        //.crop(200)            // crop a 200X200 square from center
+        //.blur(5)              // Gaussian blur with SD=5
+        .writeFile(path + fileName + '_small.jpg', function(err){
+          // check err...
+          // done.
+          console.log(err);
+          io.emit('new photo', fileName + '_small.jpg');
+        });
 
-    // });
+    });
    });
 
   // // Take picture without downloading immediately
