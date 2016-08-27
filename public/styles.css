@@ -21,8 +21,8 @@ img {
 
 .fadeIn {
   z-index: 100;
-  
+  width: 80%;
 }
 .fadeOut {
-  
+  width: 20%; 
 }
