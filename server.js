@@ -71,5 +71,5 @@ function takePicture() {
       fs.writeFileSync(path + fileName + '.jpg', data);
       io.emit('new photo', fileName + '.jpg');
     });
-  }, 15000);
+  }, 20000);
 }
