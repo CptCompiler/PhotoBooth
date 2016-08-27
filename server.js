@@ -77,5 +77,5 @@ function takePicture() {
       
       io.emit('new photo', fileName + '.jpg');
     });
-  }, 200000);
+  }, 10000);
 }
