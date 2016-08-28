@@ -1,3 +1,7 @@
+body {
+  font-family: helvetica, arial;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -9,8 +13,8 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: white;
-  -webkit-transition: all 2.0s;
+  background-color: black;
+  -webkit-transition: all 1.0s;
   /*transition: all 2.0s;*/
 
   /*transform: translate(0%, -100%);*/
@@ -20,6 +24,16 @@ img {
 .overlay.visible {
   /*transform: translate(0%, 0%);*/
   -webkit-transform: translate(0%, 0%);
+}
+
+.overlay .text {
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 70px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0%, -50%);
 }
 
 .image {
