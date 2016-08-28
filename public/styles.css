@@ -11,14 +11,14 @@ img {
   bottom: 0;
   background-color: white;
   -webkit-transition: all 2.0s;
-  transition: all 2.0s;
+  /*transition: all 2.0s;*/
 
-  transform: translate(0%, -100%);
+  /*transform: translate(0%, -100%);*/
   -webkit-transform: translate(0%, -100%);
 }
 
 .overlay.visible {
-  transform: translate(0%, 0%);
+  /*transform: translate(0%, 0%);*/
   -webkit-transform: translate(0%, 0%);
 }
 
