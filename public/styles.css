@@ -14,7 +14,7 @@ img {
   right: 0;
   bottom: 0;
   background-color: black;
-  -webkit-transition: all 1.0s;
+  -webkit-transition: all 2.0s;
   /*transition: all 2.0s;*/
 
   /*transform: translate(0%, -100%);*/
