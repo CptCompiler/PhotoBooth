@@ -10,8 +10,8 @@ img {
   right: 0;
   bottom: 0;
   background-color: white;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
+  -webkit-transition: all 2.0s;
+  transition: all 2.0s;
 
   opacity: 0;
 }
