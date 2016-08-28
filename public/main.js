@@ -14,9 +14,9 @@ socket.on('new photo', function(msg){
   setNewImage(images.length-1);
 });
 
-setInterval(function() {
-  setNewImage(Math.floor(Math.random() * images.length));
-}, 5000);
+// setInterval(function() {
+//   setNewImage(Math.floor(Math.random() * images.length));
+// }, 5000);
 
 
 function setNewImage(imageIndex) {
