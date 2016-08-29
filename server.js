@@ -62,20 +62,26 @@ GPhoto.list(function (list) {
   console.log('Found', camera.model);
   takePicture();  
 });
-
+takePicture();
 function takePicture() {
   setInterval(function() {
-    camera.takePicture({download: true}, function (er, data) {
-      var fileName = new Date();
-      var path = __dirname + '/public/photos/';
-      fs.writeFileSync('archive/' + fileName + '.jpg', data);
-      
-      var epeg = require("epeg");
-      var image = new epeg.Image({data: data});
-      buffer = image.downsize(1280, 900).process();
-      fs.writeFileSync(path + fileName + '.jpg', buffer);
-      
-      io.emit('new photo', fileName + '.jpg');
-    });
-  }, 20000);
+    io.emit('taking photo');
+    setTimeout(function() {
+      // camera.takePicture({download: true}, function (er, data) {
+      //   var fileName = new Date();
+      //   var path = __dirname + '/public/photos/';
+      //   fs.writeFileSync('archive/' + fileName + '.jpg', data);
+        
+      //   var epeg = require("epeg");
+      //   var image = new epeg.Image({data: data});
+      //   buffer = image.downsize(1280, 900).process();
+      //   fs.writeFileSync(path + fileName + '.jpg', buffer);
+        
+      //   io.emit('new photo', fileName + '.jpg');
+      // });
+      io.emit('new photo', 'test.jpg');
+    }, 4000);
+  }, 60000);
 }
+
+
