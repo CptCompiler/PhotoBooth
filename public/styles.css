@@ -38,7 +38,6 @@ img {
 }
 
 .image {
-  border: 10px solid white;
   width: 80%;
   position: absolute;
   top: 50%;
@@ -52,6 +51,10 @@ img {
 
   -webkit-transition-delay: 2s; 
   transition-delay: 2s;
+}
+
+.image img {
+  border: 10px solid white;
 }
 
 .fadeIn {
