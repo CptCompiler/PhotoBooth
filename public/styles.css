@@ -1,5 +1,6 @@
 body {
   font-family: helvetica, arial;
+  background-color: black;
 }
 
 img {
@@ -37,6 +38,7 @@ img {
 }
 
 .image {
+  border: 10px solid white;
   width: 80%;
   position: absolute;
   top: 50%;
@@ -53,12 +55,10 @@ img {
 }
 
 .fadeIn {
-  /*z-index: 100;*/
-  background-color: red;
+  
 }
 .fadeOut {
-  -webkit-transform: translate(-150%, -50%);
-  transform: translate(-150%, -50%);
-
-  background-color: green;
+  z-index: 100;
+  /*-webkit-transform: translate(-150%, -50%);
+  transform: translate(-150%, -50%);*/
 }
