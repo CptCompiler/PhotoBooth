@@ -54,7 +54,13 @@ img {
   z-index: 100;
 }
 .fadeOut {
-  
-  /*-webkit-transform: translate(-150%, -50%);
-  transform: translate(-150%, -50%);*/
+}
+
+.photoBtn {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  cursor: pointer;
+  font-size: 50px;
+  color: white;
 }

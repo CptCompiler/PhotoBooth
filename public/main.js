@@ -12,6 +12,11 @@ currentImageDiv.html('<img src="photos/' + images[0] + '">');
 var slideshowInterval = null;
 var slideshowTimer = null;
 
+
+$('.photoBtn').click(function() {
+  socket.emit('take photo');
+});
+
 activateSlideshow();
 function activateSlideshow() {
   slideshowTimer = setTimeout(function() {

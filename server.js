@@ -21,6 +21,7 @@ app.get('/', function (req, res) {
 io.on('connection', function(socket){
   console.log('a user connected');
   socket.on('take photo', function() {
+    console.log('taki photo!!');
     camera.takePicture({download: true}, function (er, data) {
     var fileName = new Date();
     var path = __dirname + '/public/photos/';
@@ -54,7 +55,7 @@ GPhoto.list(function (list) {
 });
 
 function takePicture() {
-  setInterval(function() {
+  //setInterval(function() {
     io.emit('taking photo');
     setTimeout(function() {
       camera.takePicture({download: true}, function (er, data) {
@@ -71,7 +72,7 @@ function takePicture() {
       });
       //io.emit('new photo', 'test.jpg');
     }, 5000);
-  }, 60000);
+  //}, 60000);
 }
 
 
