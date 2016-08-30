@@ -67,20 +67,20 @@ function takePicture() {
   setInterval(function() {
     io.emit('taking photo');
     setTimeout(function() {
-      // camera.takePicture({download: true}, function (er, data) {
-      //   var fileName = new Date();
-      //   var path = __dirname + '/public/photos/';
-      //   fs.writeFileSync('archive/' + fileName + '.jpg', data);
+      camera.takePicture({download: true}, function (er, data) {
+        var fileName = new Date();
+        var path = __dirname + '/public/photos/';
+        fs.writeFileSync('archive/' + fileName + '.jpg', data);
         
-      //   var epeg = require("epeg");
-      //   var image = new epeg.Image({data: data});
-      //   buffer = image.downsize(1280, 900).process();
-      //   fs.writeFileSync(path + fileName + '.jpg', buffer);
+        var epeg = require("epeg");
+        var image = new epeg.Image({data: data});
+        buffer = image.downsize(1280, 900).process();
+        fs.writeFileSync(path + fileName + '.jpg', buffer);
         
-      //   io.emit('new photo', fileName + '.jpg');
-      // });
-      io.emit('new photo', 'test.jpg');
-    }, 4000);
+        io.emit('new photo', fileName + '.jpg');
+      });
+      //io.emit('new photo', 'test.jpg');
+    }, 5000);
   }, 60000);
 }
 
