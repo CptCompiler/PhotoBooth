@@ -22,11 +22,7 @@ io.on('connection', function(socket){
   console.log('a user connected');
   socket.on('take photo', function() {
     console.log('taki photo!!');
-    camera.takePicture({download: true}, function (er, data) {
-    var fileName = new Date();
-    var path = __dirname + '/public/photos/';
-    fs.writeFileSync(path + fileName + '.jpg', data);
-    io.emit('new photo', fileName + '.jpg');
+    takePicture();
    });
   });
 });
