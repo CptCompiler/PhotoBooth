@@ -18,7 +18,7 @@ function activateSlideshow() {
     slideshowInterval = setInterval(function() {
       setNewImage(Math.floor(Math.random() * images.length));
     }, 6000);
-  }, 20000);
+  }, 30000);
 }
 
 function deactivateSlideshow() {

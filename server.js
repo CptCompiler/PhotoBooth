@@ -37,16 +37,6 @@ http.listen(3000, function(){
 });
 
 
-// var chokidar = require('chokidar');
-
-// var watcher = chokidar.watch('public/photos/*.jpg', {
-//   ignored: /[\/\\]\./, persistent: true
-// });
-
-// watcher.on('add', function(newFile) {
-//   io.emit('new photo', path.basename(newFile));
-// });
-
 
 
 
@@ -62,7 +52,7 @@ GPhoto.list(function (list) {
   console.log('Found', camera.model);
   takePicture();  
 });
-takePicture();
+
 function takePicture() {
   setInterval(function() {
     io.emit('taking photo');
