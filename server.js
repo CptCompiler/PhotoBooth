@@ -46,7 +46,7 @@ GPhoto.list(function (list) {
   if (list.length === 0) return;
   camera = list[0];
   console.log('Found', camera.model);
-  takePicture();  
+   
 });
 
 function takePicture() {

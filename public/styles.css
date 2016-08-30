@@ -58,6 +58,7 @@ img {
 
 .photoBtn {
   position: absolute;
+  z-index: 1000;
   right: 5%;
   bottom: 5%;
   cursor: pointer;
