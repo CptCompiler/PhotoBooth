@@ -23,7 +23,6 @@ io.on('connection', function(socket){
   socket.on('take photo', function() {
     console.log('taki photo!!');
     takePicture();
-   });
   });
 });
 
