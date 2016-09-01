@@ -72,7 +72,7 @@ function takePicture() {
 
 
 var Gpio = require('pigpio').Gpio;
-var button = new Gpio(14, {
+var button = new Gpio(4, {
   mode: Gpio.INPUT,
   pullUpDown: Gpio.PUD_DOWN,
   edge: Gpio.EITHER_EDGE
