@@ -71,14 +71,14 @@ function takePicture() {
 }
 
 
-// var Gpio = require('pigpio').Gpio;
-// var button = new Gpio(14, {
-//   mode: Gpio.INPUT,
-//   pullUpDown: Gpio.PUD_DOWN,
-//   edge: Gpio.EITHER_EDGE
-// });
+var Gpio = require('pigpio').Gpio;
+var button = new Gpio(14, {
+  mode: Gpio.INPUT,
+  pullUpDown: Gpio.PUD_DOWN,
+  edge: Gpio.EITHER_EDGE
+});
 
-// button.on('interrupt', function (level) {
-//   console.log('button pressed');
-// });
+button.on('interrupt', function (level) {
+  console.log('button pressed');
+});
 
