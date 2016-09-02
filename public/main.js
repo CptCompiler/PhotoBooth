@@ -44,20 +44,16 @@ socket.on('loading', function(msg){
 
 socket.on('show photo', function(msg){
   setNewImage(msg);
-  //activateSlideshow();
 });
 
 socket.on('new photo', function(msg){
-  bgText.text('');
   $('.image').attr('src', 'photos/' + msg);
   images.push(msg);
   setNewImage(msg);
   console.log("new photo", msg);
-  //activateSlideshow();
 });
 
 socket.on('taking photo', function(msg){
-  //deactivateSlideshow();
   currentImageDiv.addClass('fadeOut');
   currentImageDiv.attr('style', '-webkit-transform: translate(' + ((Math.floor((Math.random() * 10) % 2) - 1) * 100) + '%, '  + (Math.random() * 200 -100) + '%) rotateZ(' + (Math.random() * 20 -10) + 'deg) scale(0)');
   setTimeout(function() { 
@@ -92,12 +88,5 @@ function setNewImage(imageFileName) {
   currentImageDiv = nextImageDiv;
   nextImageDiv = temp;
 
-
-  // overlay.addClass('visible');
-  // setTimeout(function() {
-  //   currentImageDiv.attr('src', 'photos/' + images[imageIndex]);
-  //   setTimeout(function() {
-  //     overlay.removeClass('visible');
-  //   }, 2000);
-  // }, 1000);
+  bgText.text('');
 }
