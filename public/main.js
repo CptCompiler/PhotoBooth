@@ -37,12 +37,18 @@ $('.photoBtn').click(function() {
 //   }
 // }
 
+
+socket.on('loading', function(msg){
+  bgText.text('Loading...');
+});
+
 socket.on('show photo', function(msg){
   setNewImage(msg);
   //activateSlideshow();
 });
 
 socket.on('new photo', function(msg){
+  bgText.text('');
   $('.image').attr('src', 'photos/' + msg);
   images.push(msg);
   setNewImage(msg);

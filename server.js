@@ -64,6 +64,7 @@ function takePicture() {
   deactivateSlideshow();
   io.emit('taking photo');
   setTimeout(function() {
+    io.emit('loading');
     camera.takePicture({download: true}, function (er, data) {
       var fileName = new Date();
       var path = __dirname + '/public/photos/';
