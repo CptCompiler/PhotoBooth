@@ -48,6 +48,7 @@ img {
 .image img {
   border: 10px solid white;
   background-color: white;
+  border-radius: 20px;
 }
 
 .fadeIn {
