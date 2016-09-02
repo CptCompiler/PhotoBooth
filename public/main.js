@@ -88,5 +88,8 @@ function setNewImage(imageFileName) {
   currentImageDiv = nextImageDiv;
   nextImageDiv = temp;
 
-  bgText.text('');
+  setTimeout(function() { 
+    bgText.text('');
+  }, 2000);
+  
 }
