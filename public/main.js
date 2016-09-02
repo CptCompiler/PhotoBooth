@@ -46,6 +46,7 @@ socket.on('new photo', function(msg){
   $('.image').attr('src', 'photos/' + msg);
   images.push(msg);
   setNewImage(msg);
+  console.log("new photo", msg);
   //activateSlideshow();
 });
 
