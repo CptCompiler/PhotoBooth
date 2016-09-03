@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
 });
 
 app.use('/gallery', require('node-gallery')({
-  staticFiles : 'public/photos',
+  staticFiles : 'archive',
   urlRoot : 'gallery', 
   title : 'Hochzeitsgallerie',
   render : false // 
