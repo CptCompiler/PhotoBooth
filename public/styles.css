@@ -73,3 +73,7 @@ img {
   background-color: rgba(255,255,255, 0.7);
   font-size: 35px;
 }
+
+.photo img {
+  width: 100%;
+}

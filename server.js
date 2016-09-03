@@ -25,6 +25,15 @@ app.get('/', function (req, res) {
   );
 });
 
+app.use('/gallery', require('node-gallery')({
+  staticFiles : 'public/photos',
+  urlRoot : 'gallery', 
+  title : 'Hochzeitsgallerie',
+  render : false // 
+}), function(req, res, next){
+  return res.render('gallery', { galleryHtml : req.html });
+});
+
 io.on('connection', function(socket){
   console.log('a user connected');
   socket.on('take photo', function() {
